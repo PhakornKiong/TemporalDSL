@@ -1,49 +1,22 @@
-<img width="200px" src="https://encore.dev/assets/branding/logo/logo.svg" alt="Encore - The Backend Development Engine" />
+## Setup
 
-# Hello World
+- Install Encore
+  https://encore.dev/docs/install
+- Ensure Temporal Server is running, easiest way to setup is to use docker-compose from Temporal
+  https://github.com/temporalio/docker-compose
 
-This is a basic Hello World Encore application with a single API endpoint
+## Start Server
 
-## Developing locally
+- run `encore run dev`
 
-When you have installed Encore, you can create a new Encore application and clone this example with this command.
+## Temporal as Backend for low code
 
-```bash
-encore app create my-app-name --example=hello-world
-```
+This repository contains code for a custom workflow engine built on top of Temporal.
 
+It includes a YAML parser to define workflows, a topological sort algorithm to determine the order of execution, and activity functions to perform specific tasks.
 
-## Running
+The workflow engine executes each node in the workflow as an activity and passes the output of the previous node as input to the next node.
 
-```bash
-# Run the app
-encore run
-```
+The code also includes a main function to initialize the workflow engine and start the workflow execution.
 
-## Using the API
-
-To see that your app is running, you can ping the API.
-
-```bash
-curl http://localhost:4000/hello/World
-```
-
-## Open the developer dashboard
-
-While `encore run` is running, open <http://localhost:4000/> to view Encore's local developer dashboard.
-
-## Deployment
-
-Deploy your application to a staging environment in Encore's free development cloud.
-
-```bash
-git push encore
-```
-
-Then head over to <https://app.encore.dev> to find out your production URL, and off you go into the clouds!
-
-## Testing
-
-```bash
-encore test ./...
-```
+Custom DSL is defined in [workflow.yaml](dsl/workflow.yaml)

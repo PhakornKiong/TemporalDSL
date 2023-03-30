@@ -1,0 +1,29 @@
+name: my-workflow
+description: This is an example workflow.
+
+nodes:
+  - name: SampleActivity1
+    type: activity
+    input:
+      main:
+        - SA1Value1
+        - SA1Value2
+  - name: SampleActivity2
+    type: activity
+  - name: SampleActivity3
+    type: activity
+  - name: SampleActivity4
+    type: activity
+
+connections:
+  - from: SampleActivity1
+    to:
+      - SampleActivity2
+      - SampleActivity3
+      - SampleActivity4
+  - from: SampleActivity2
+    to:
+      - SampleActivity3
+  - from: SampleActivity4
+    to:
+      - SampleActivity2
